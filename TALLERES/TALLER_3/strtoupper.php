@@ -13,8 +13,8 @@ echo "</br>Frase original: $frase</br>";
 echo "Frase en mayúsculas: $fraseMayusculas</br>";
 
 // Ejercicio: Convierte el nombre de tu ciudad y país a mayúsculas
-$ciudad = "tu ciudad aquí";
-$pais = "tu país aquí";
+$ciudad = "Ciudad de Panamá";
+$pais = "Chepo";
 $ciudadMayusculas = strtoupper($ciudad);
 $paisMayusculas = strtoupper($pais);
 echo "</br>Tu ciudad en mayúsculas: $ciudadMayusculas</br>";

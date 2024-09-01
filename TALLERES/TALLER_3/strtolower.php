@@ -13,7 +13,7 @@ echo "</br>Frase original: $frase</br>";
 echo "Frase en minúsculas: $fraseMinusculas</br>";
 
 // Ejercicio: Convierte tu nombre completo a minúsculas
-$tuNombre = "TU NOMBRE COMPLETO AQUÍ";
+$tuNombre = "ALVAN MARTIN SAMUDIO";
 $tuNombreMinusculas = strtolower($tuNombre);
 echo "</br>Tu nombre original: $tuNombre</br>";
 echo "Tu nombre en minúsculas: $tuNombreMinusculas</br>";
@@ -25,7 +25,7 @@ function compararSinMayusculas($cadena1, $cadena2) {
 
 $palabra1 = "PHP";
 $palabra2 = "php";
-echo "</br>¿'$palabra1' y '$palabra2' son iguales? " . 
+echo "</br>¿'$PyThon' y '$python' son iguales? " . 
     (compararSinMayusculas($palabra1, $palabra2) ? "Sí" : "No") . "</br>";
 
 // Extra: Convertir un array de strings a minúsculas

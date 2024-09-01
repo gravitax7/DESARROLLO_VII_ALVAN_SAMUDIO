@@ -16,7 +16,7 @@ echo "</br>Palabra original: $palabra</br>";
 echo "Últimas letras: $ultimasPalabras</br>";
 
 // Ejercicio: Extrae el nombre y apellido de una cadena
-$nombreCompleto = "Juan Pérez Rodríguez";
+$nombreCompleto = "Alvan Martin Samudio";
 $nombre = substr($nombreCompleto, 0, strpos($nombreCompleto, " "));
 $apellido = substr($nombreCompleto, strrpos($nombreCompleto, " ") + 1);
 echo "</br>Nombre completo: $nombreCompleto</br>";
