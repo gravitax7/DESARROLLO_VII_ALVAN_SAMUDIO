@@ -28,6 +28,14 @@ function contar_vocales($texto_vocales){
 $total_vocales= contar_vocales($texto_vocales);
 //echo "El total de vocales dentro de la frase es de: $total_vocales.\n";
 
+function invertir_palabras($texto){
+    $array_texto= explode(" ",$texto);
+    for ($i=count($array_texto)-1;$i>=0;$i--){
+        $array_revez[$i]= $array_texto[$i];
+    }
+    $texto_revez= implode (" ", $array_revez);
+    return $texto_revez;
 
+}
 
 ?>

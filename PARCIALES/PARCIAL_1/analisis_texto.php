@@ -17,14 +17,25 @@ include 'utilidades_texto.php';
     </style>
 </head>
 <body>
-    <h1>Integración de PHP con HTML</h1>
-    <?php
-    $arreglo_frases=["Hola Mundo", "En este texto debo contar la cantidad de vocales", "Parcial numero 1 de Php"];
-    for ($i=0;$i<count($arreglo_frases);$i++){
-        $longitud_texto= contar_palabras($arreglo_frases[$i]);
+    <h1>Parcial 1. AS</h1>
+
+    <table>
+        <tr>
+            <th>Tabla de uso de funciones para las frases</th>
+            <?php $arreglo_frases=["Hola Mundo", "En este texto debo contar la cantidad de vocales", "Parcial numero 1 de Php"]; ?>
+            <?php for ($i=0;$i<count($arreglo_frases);$i++): ?>
+                <th><?=         
+                $longitud_texto= contar_palabras($arreglo_frases[$i]);
         $real_count=$i+1;
         echo "El número total de palabras en la frase $real_count es de: $longitud_texto.";
         $total_vocales= contar_vocales($arreglo_frases[$i]);
         echo "   El total de vocales dentro de la frase $real_count es de: $total_vocales.</br>";
-    }
-    ?>
+        $frase_invertida= invertir_palabras($arreglo_frases[$i]);
+        echo "La frase $real_count invertida: $frase_invertida</br>";?></th>
+            <?php endfor; ?>
+        </tr><br>
+    </table>
+
+
+</body>
+</html>
