@@ -24,16 +24,19 @@ include 'utilidades_texto.php';
             <th>Tabla de uso de funciones para las frases</th>
             <?php $arreglo_frases=["Hola Mundo", "En este texto debo contar la cantidad de vocales", "Parcial numero 1 de Php"]; ?>
             <?php for ($i=0;$i<count($arreglo_frases);$i++): ?>
-                <th><br><?=         
-                $longitud_texto= contar_palabras($arreglo_frases[$i]);
-        $real_count=$i+1;
-        echo "El número total de palabras en la frase $real_count es de: $longitud_texto.</br>";
-        $total_vocales= contar_vocales($arreglo_frases[$i]);
-        echo "   El total de vocales dentro de la frase $real_count es de: $total_vocales.</br>";
-        $frase_invertida= invertir_palabras($arreglo_frases[$i]);
-        echo "La frase $real_count invertida: $frase_invertida</br>";?></th>
+                <th><?=         
+                $real_count=$i+1;
+                    
+                    $longitud_texto= contar_palabras($arreglo_frases[$i]);
+                    echo "El número total de palabras en la frase $real_count es de: $longitud_texto.</br>";
+        
+                    $total_vocales= contar_vocales($arreglo_frases[$i]);
+                    echo "El total de vocales dentro de la frase $real_count es de: $total_vocales.</br>";
+                    
+                    $frase_invertida= invertir_palabras($arreglo_frases[$i]);
+                    echo "La frase $real_count invertida: $frase_invertida</br>";?></th>
             <?php endfor; ?>
-            </br></tr>
+            </tr>
     </table>
 
 
