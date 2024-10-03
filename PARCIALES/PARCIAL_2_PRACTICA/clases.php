@@ -1,4 +1,12 @@
 <?php
+$estadosLegibles[
+"disponible" => "DISPONIBLE",
+"prestado"=> "PRESTADO",
+"en_reparacion" =>"EN REPARACIÓN"
+];
+?>
+
+<?php
 include 'Prestable.php';
 
 abstract class RecursoBiblioteca implements Prestable {
@@ -38,7 +46,7 @@ class Libro extends RecursoBiblioteca {
         $this->isbn = $isbn;
     }
     public function obtenerDetallesPrestamo(): string{
-        return "Libro: " . {$this->titulo} . " ISBN: " . {$this->numero};         
+        return "Libro: " . $this->titulo . " ISBN: " . $this->numero;         
     }
 }
 
@@ -49,7 +57,7 @@ class Revista extends RecursoBiblioteca {
         $this->numeroEdicion = $numeroEdicion;
     }
     public function obtenerDetallesPrestamo(): string{
-return "Revista: " . {$this->titulo} . "por ".$this->autor . ", número de edición: ".$this->numeroEdicion;
+return "Revista: " . $this->titulo . "por ".$this->autor . ", número de edición: ".$this->numeroEdicion;
     }
 }
 
@@ -71,10 +79,43 @@ class GestorBiblioteca extends RecursoBiblioteca{
         $json = file_get_contents('biblioteca.json');
         $data = json_decode($json, true);
         
-   //     foreach ($data as $recursoData) {
-           // $recurso = new RecursoBiblioteca($recursoData);
-            $this->recursos[] = $recurso;
-     //   }
+       foreach ($data as $recursoData) {
+        switch ($recursoData['tipo']){
+            case 'Libro':
+                $this->recursos[] = new Libro(
+                    $recursoData['id'],
+                    $recursoData['titulo'],
+                    $recursoData['autor'],
+                    $recursoData['anioPublicacion'],
+                    $recursoData['estado'],
+                    $recursoData['fechaAdquisicion'],
+                    $recursoData['isbn']
+                );
+                break;
+                case 'Revista':
+                    $this->recursos[] = new Libro(
+                        $recursoData['id'],
+                        $recursoData['titulo'],
+                        $recursoData['autor'],
+                        $recursoData['anioPublicacion'],
+                        $recursoData['estado'],
+                        $recursoData['fechaAdquisicion'],
+                        $recursoData['numeroEdicion']
+                    );
+                    break;
+                    case 'DVD':
+                        $this->recursos[] = new Libro(
+                            $recursoData['id'],
+                            $recursoData['titulo'],
+                            $recursoData['autor'],
+                            $recursoData['anioPublicacion'],
+                            $recursoData['estado'],
+                            $recursoData['fechaAdquisicion'],
+                            $recursoData['duracion']
+                        );
+                        break;
+        }
+       }
         
         return $this->recursos;
     }
