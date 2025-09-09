@@ -11,6 +11,7 @@
         }elseif($antiguedad_meses >24){
             return 0.2;
         }
+    }
 
     function calcular_seguo_medico($cuota_base){
         return $cuota_base * 0.05;

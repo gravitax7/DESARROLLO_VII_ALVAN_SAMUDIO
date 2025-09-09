@@ -8,7 +8,6 @@ $array_frases = ["Hola mundo Hola mundo ya viene navidad","Santa claus quiero qu
 ?>
 
 <!DOCTYPE html>
-
 <body>
     <table>
         <th>
@@ -21,7 +20,7 @@ $array_frases = ["Hola mundo Hola mundo ya viene navidad","Santa claus quiero qu
     <?php foreach ($array_frases as $frases): ?>
         <tr>
         <td> <?php echo $frases?></td>
-        <td><?php echo contar_palabbras_repetidas($frases);?></td>
+        <td><?php echo contar_palabras_repetidas($frases);?></td>
         <td><?php echo capitalizar_palabras($frases); ?></td>
         </tr>
         <?php endforeach;?>

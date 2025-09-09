@@ -1,16 +1,17 @@
 <?php
 $text = "HOLA MUNDO HOLA MUNDO";
 
-function contar_palabbras_repetidas($texto){
-    $palabras = explode(" ",strtolower($texto));
-    //$result = [explode(" ",strtolower($texto)) => 1];
+function contar_palabras_repetidas($texto) {
+    $palabras = explode(" ", strtolower($texto));
     $count = [];
-    foreach($palabras as $matches){
-     if (isset($count[$matches])){
-        $count[$matches] += 1;
+    foreach ($palabras as $palabra) {
+        if (isset($count[$palabra])) {
+            $count[$palabra]++;
+        } else {
+            $count[$palabra] = 1;
         }
-    }
-    return implode(" ", $count);
+        }
+    return implode(" ",$count);
 }
 
 function capitalizar_palabras($texto){
@@ -20,9 +21,8 @@ function capitalizar_palabras($texto){
     },$palabras_array);
     return implode (" ", $array_toupper);
 }
-echo contar_palabbras_repetidas($text);
 
-echo capitalizar_palabras($text);
+//echo capitalizar_palabras($text);
 
 
 ?>
