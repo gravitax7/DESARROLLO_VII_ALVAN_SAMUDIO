@@ -1,7 +1,11 @@
 <?php
 // Archivo: clases.php
 
-class Producto {
+interface Inventariable{
+    public function obtenerInformacionInventario():string;
+}
+
+abstract class Producto implements Inventariable{
     public $id;
     public $nombre;
     public $descripcion;
@@ -19,6 +23,28 @@ class Producto {
     }
 }
 
+class ProductoElectronico extends Producto{
+    public $garantiaMeses;
+
+    public function obtenerInformacionInventario(): string{
+        return "Meses de garantia: " . $this-> $garantiaMeses;
+    }
+}
+
+class ProductoAlimento extends Producto {
+    public $fechaVencimiento;
+    public function obtenerInformacionInventario(): string{
+        return "fecha de vencimiento: " . $this-> $fechaVencimiento;
+    }
+}
+
+class ProductoRopa extends Producto {
+    public $talla;
+        public function obtenerInformacionInventario(): string{
+        return "talla : " . $this-> $talla;
+    }
+}
+
 class GestorInventario {
     private $items = [];
     private $rutaArchivo = 'productos.json';
@@ -29,7 +55,7 @@ class GestorInventario {
         }
         return $this->items;
     }
-
+//---=
     private function cargarDesdeArchivo() {
         if (!file_exists($this->rutaArchivo)) {
             return;
@@ -43,8 +69,20 @@ class GestorInventario {
         }
         
         foreach ($arrayDatos as $datos) {
-            $this->items[] = new Producto($datos);
+            //$this->items[] = new Producto($datos);
+            $producto = null;
+            if($datos['categoria']==="electronico"){
+                $producto = new ProductoElectronico($datos);
+                $this->items[] = $producto;
+            } elseif($datos['categoria']==="alimento"){
+                $producto = new ProductoAlimento($datos);
+                $this->items[] = $producto;
+            } elseif ($datos['categoria']==="ropa"){
+                $producto = new ProductoRopa($datos);
+                $this->items[] = $producto;
+            }
         }
+        return $this->items;
     }
 
     private function persistirEnArchivo() {
