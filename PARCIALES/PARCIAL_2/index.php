@@ -24,6 +24,7 @@ if ($operacion === 'crear' && !empty($_GET['nombre'])) {
     $notificacion = "Producto modificado correctamente.";
     
 } elseif ($operacion === 'eliminar' && !empty($_GET['id'])) {
+    $gestor->eliminar($_GET['id']);
     $notificacion = "Producto eliminado correctamente.";
     
 } elseif ($operacion === 'cambiar_estado' && !empty($_GET['id']) && !empty($_GET['nuevo_estado'])) {
