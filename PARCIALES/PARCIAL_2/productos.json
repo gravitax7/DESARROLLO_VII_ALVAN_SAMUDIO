@@ -28,5 +28,15 @@
         "fechaIngreso": "2024-07-20",
         "categoria": "ropa",
         "talla": "M"
+    },
+    {
+        "id": 4,
+        "nombre": "prueba1",
+        "descripcion": "pruebaaaa",
+        "estado": "disponible",
+        "stock": "1",
+        "fechaIngreso": "2025-10-07",
+        "categoria": "electronico",
+        "garantiaMeses": "16"
     }
 ]

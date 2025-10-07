@@ -17,6 +17,7 @@ $filtroEstado = $_GET['estado'] ?? '';
 
 // Procesar las diferentes operaciones
 if ($operacion === 'crear' && !empty($_GET['nombre'])) {
+    $gestor->agregar($_GET);
     $notificacion = "Producto agregado correctamente.";
     
 } elseif ($operacion === 'modificar' && !empty($_GET['id'])) {

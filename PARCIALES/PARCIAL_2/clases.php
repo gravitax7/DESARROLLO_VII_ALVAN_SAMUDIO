@@ -85,6 +85,35 @@ class GestorInventario {
         return $this->items;
     }
 
+    public function agregar($nuevoProducto){
+        $this->cargarDesdeArchivo();
+        if($nuevoProducto['categoria']==="electronico"){
+                $producto = new ProductoElectronico($nuevoProducto);
+                //$this->items[] = $producto;
+            } elseif($nuevoProducto['categoria']==="alimento"){
+                $producto = new ProductoAlimento($datos);
+                //$this->items[] = $producto;
+            } elseif ($nuevoProducto['categoria']==="ropa"){
+                $producto = new ProductoRopa($datos);
+                //$this->items[] = $producto;
+            }
+         $producto->id = $this->obtenerMaximoId()+1;
+         $producto->fechaIngreso = date("Y-m-d");
+         $this->items[] = $producto;
+         $this->persistirEnArchivo();
+     }
+
+     public function eliminar($idProducto) {
+        foreach ($this->productos as $indice => $producto) {
+            if ($producto['id'] == $idProducto) {
+                unset($this->productos[$indice]);
+                $this->productos = array_values($this->productos); 
+                return true;
+            }
+        }
+        return false;
+    }
+
     private function persistirEnArchivo() {
         $arrayParaGuardar = array_map(function($item) {
             return get_object_vars($item);
