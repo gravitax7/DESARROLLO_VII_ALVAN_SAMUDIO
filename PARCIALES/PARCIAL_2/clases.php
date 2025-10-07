@@ -27,21 +27,21 @@ class ProductoElectronico extends Producto{
     public $garantiaMeses;
 
     public function obtenerInformacionInventario(): string{
-        return "Meses de garantia: " . $this-> $garantiaMeses;
+        return "Meses de garantia: " . $this-> garantiaMeses;
     }
 }
 
 class ProductoAlimento extends Producto {
     public $fechaVencimiento;
     public function obtenerInformacionInventario(): string{
-        return "fecha de vencimiento: " . $this-> $fechaVencimiento;
+        return "fecha de vencimiento: " . $this-> fechaVencimiento;
     }
 }
 
 class ProductoRopa extends Producto {
     public $talla;
         public function obtenerInformacionInventario(): string{
-        return "talla : " . $this-> $talla;
+        return "talla : " . $this-> talla;
     }
 }
 
