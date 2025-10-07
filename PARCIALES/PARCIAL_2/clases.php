@@ -89,13 +89,10 @@ class GestorInventario {
         $this->cargarDesdeArchivo();
         if($nuevoProducto['categoria']==="electronico"){
                 $producto = new ProductoElectronico($nuevoProducto);
-                //$this->items[] = $producto;
             } elseif($nuevoProducto['categoria']==="alimento"){
-                $producto = new ProductoAlimento($datos);
-                //$this->items[] = $producto;
+                $producto = new ProductoAlimento($nuevoProducto);
             } elseif ($nuevoProducto['categoria']==="ropa"){
-                $producto = new ProductoRopa($datos);
-                //$this->items[] = $producto;
+                $producto = new ProductoRopa($nuevoProducto);
             }
          $producto->id = $this->obtenerMaximoId()+1;
          $producto->fechaIngreso = date("Y-m-d");

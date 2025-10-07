@@ -31,12 +31,22 @@
     },
     {
         "id": 4,
-        "nombre": "prueba1",
-        "descripcion": "pruebaaaa",
+        "nombre": "Samsung Galaxy Z Fold 6",
+        "descripcion": "Celular plegable",
         "estado": "disponible",
-        "stock": "1",
+        "stock": "25",
         "fechaIngreso": "2025-10-07",
         "categoria": "electronico",
-        "garantiaMeses": "16"
+        "garantiaMeses": "24"
+    },
+    {
+        "id": 5,
+        "nombre": "Maiz Refinado",
+        "descripcion": "Maiz para cocinar",
+        "estado": "disponible",
+        "stock": "50",
+        "fechaIngreso": "2025-10-07",
+        "categoria": "alimento",
+        "fechaVencimiento": "2026-01-06"
     }
 ]
