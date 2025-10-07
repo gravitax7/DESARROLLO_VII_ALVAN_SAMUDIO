@@ -8,6 +8,15 @@ require_once 'clases.php';
 $gestor = new GestorInventario();
 $notificacion = '';
 $itemParaEditar = null;
+$estadosLegibles=[
+    "disponible" => "Disponible",
+    "agotado"=>"Agotado",
+    "por_recibir"=> "Por recibir"
+];
+
+function estadoLegible($estado, $estadosLegibles){
+    return $estadosLegibles[$estado]?? $estado;
+}
 
 // Capturar parámetros de la URL
 $operacion = $_GET['operacion'] ?? 'listar';
@@ -268,7 +277,7 @@ if ($operacion === 'ordenar') {
                                             };
                                             ?>
                                             <span class="badge bg-<?php echo $badgeClass; ?>">
-                                                <?php echo htmlspecialchars($item->estado); ?>
+                                                <?php echo htmlspecialchars(estadoLegible($item->estado, $estadosLegibles)); ?>
                                             </span>
                                         </td>
                                         <td><?php echo htmlspecialchars($item->stock); ?></td>
